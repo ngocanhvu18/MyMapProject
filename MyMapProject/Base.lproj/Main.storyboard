@@ -1,24 +1,234 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mrV-yq-0Pb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Maps View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapsViewController" customModule="MyMapProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAx-3Z-IJT" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gef-MT-nKg" customClass="DesignView" customModule="MyMapProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="100.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koK-xN-JgY" customClass="DesignView" customModule="MyMapProject" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="8" width="355" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WVj-XI-wql" customClass="DesignText" customModule="MyMapProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
+                                                <color key="backgroundColor" red="0.97027551918995592" green="0.99004209844559588" blue="0.95519668264671997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbV-1r-evb" customClass="DesignButton" customModule="MyMapProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.040195919689119175" green="0.037896008602201221" blue="0.007021689297914014" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="topBorder" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="5RG-nt-aGl" kind="show" identifier="goAdd" id="Ctk-Ia-xbD"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="WVj-XI-wql" firstAttribute="leading" secondItem="koK-xN-JgY" secondAttribute="leading" id="1U7-AV-tJB"/>
+                                            <constraint firstAttribute="bottom" secondItem="WVj-XI-wql" secondAttribute="bottom" id="9T1-rF-fmc"/>
+                                            <constraint firstItem="UbV-1r-evb" firstAttribute="leading" secondItem="koK-xN-JgY" secondAttribute="leading" id="F9s-Ey-oWt"/>
+                                            <constraint firstAttribute="trailing" secondItem="UbV-1r-evb" secondAttribute="trailing" id="G2E-vd-XII"/>
+                                            <constraint firstItem="UbV-1r-evb" firstAttribute="top" secondItem="koK-xN-JgY" secondAttribute="top" id="K1h-5W-TIT"/>
+                                            <constraint firstAttribute="trailing" secondItem="WVj-XI-wql" secondAttribute="trailing" id="Lww-yi-aZa"/>
+                                            <constraint firstAttribute="height" constant="40" id="Ww1-Pq-8e9"/>
+                                            <constraint firstAttribute="bottom" secondItem="UbV-1r-evb" secondAttribute="bottom" id="gkS-6Z-V1d"/>
+                                            <constraint firstItem="WVj-XI-wql" firstAttribute="top" secondItem="koK-xN-JgY" secondAttribute="top" id="xgz-Jq-0WO"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="topBorder" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJr-HQ-od9" customClass="DesignView" customModule="MyMapProject" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="52.5" width="355" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4XG-tt-chq" customClass="DesignText" customModule="MyMapProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="-0.5" width="355" height="40"/>
+                                                <color key="backgroundColor" red="0.94783859417565053" green="0.99004209844559588" blue="0.94352348048560197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiS-dx-4bE" customClass="DesignButton" customModule="MyMapProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.040195919689999998" green="0.037896008600000003" blue="0.0070216892979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="5RG-nt-aGl" kind="show" id="vLX-B1-IrR"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="EiS-dx-4bE" firstAttribute="leading" secondItem="NJr-HQ-od9" secondAttribute="leading" id="9VG-LW-x7Z"/>
+                                            <constraint firstAttribute="trailing" secondItem="4XG-tt-chq" secondAttribute="trailing" id="A8p-GS-P9K"/>
+                                            <constraint firstItem="EiS-dx-4bE" firstAttribute="top" secondItem="NJr-HQ-od9" secondAttribute="top" id="AWC-p3-Xmv"/>
+                                            <constraint firstAttribute="height" constant="40" id="BE3-fq-fXN"/>
+                                            <constraint firstAttribute="trailing" secondItem="EiS-dx-4bE" secondAttribute="trailing" id="E6d-MX-sJQ"/>
+                                            <constraint firstItem="4XG-tt-chq" firstAttribute="leading" secondItem="NJr-HQ-od9" secondAttribute="leading" id="KQu-BD-kcV"/>
+                                            <constraint firstAttribute="bottom" secondItem="EiS-dx-4bE" secondAttribute="bottom" id="M4r-Ov-h1f"/>
+                                            <constraint firstAttribute="bottom" secondItem="4XG-tt-chq" secondAttribute="bottom" id="SHW-rT-J1e"/>
+                                            <constraint firstItem="4XG-tt-chq" firstAttribute="top" secondItem="NJr-HQ-od9" secondAttribute="top" id="vZX-Pl-90c"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.50484957563180788" green="1" blue="0.74376924497181496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="NJr-HQ-od9" secondAttribute="bottom" constant="8" id="06h-ng-gdi"/>
+                                    <constraint firstAttribute="trailing" secondItem="NJr-HQ-od9" secondAttribute="trailing" constant="10" id="Up8-wV-kgP"/>
+                                    <constraint firstAttribute="trailing" secondItem="koK-xN-JgY" secondAttribute="trailing" constant="10" id="Y88-3g-VzF"/>
+                                    <constraint firstItem="koK-xN-JgY" firstAttribute="top" secondItem="gef-MT-nKg" secondAttribute="top" constant="8" id="dII-5L-VTR"/>
+                                    <constraint firstItem="NJr-HQ-od9" firstAttribute="leading" secondItem="gef-MT-nKg" secondAttribute="leading" constant="10" id="go6-0F-i9b"/>
+                                    <constraint firstItem="koK-xN-JgY" firstAttribute="leading" secondItem="gef-MT-nKg" secondAttribute="leading" constant="10" id="iR8-02-Ce3"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gef-MT-nKg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7nE-Hh-DOa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cAx-3Z-IJT" secondAttribute="trailing" id="7rO-bj-ptI"/>
+                            <constraint firstItem="gef-MT-nKg" firstAttribute="centerX" secondItem="cAx-3Z-IJT" secondAttribute="centerX" id="Nhf-OL-rhI"/>
+                            <constraint firstItem="cAx-3Z-IJT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wbj-EG-8YA"/>
+                            <constraint firstItem="cAx-3Z-IJT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Zaf-ln-7s9"/>
+                            <constraint firstItem="gef-MT-nKg" firstAttribute="width" secondItem="cAx-3Z-IJT" secondAttribute="width" id="fD5-HK-b1C"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cAx-3Z-IJT" secondAttribute="bottom" id="hWG-lh-PEY"/>
+                            <constraint firstItem="gef-MT-nKg" firstAttribute="height" secondItem="cAx-3Z-IJT" secondAttribute="height" multiplier="1/6" id="xxc-fj-thf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="geF-uR-7HJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="UqK-3r-r8w">
+                            <connections>
+                                <action selector="clickMenu:" destination="BYZ-38-t0r" id="xMo-6w-dax"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="goButton" destination="UbV-1r-evb" id="0G9-QE-GBN"/>
+                        <outlet property="goTextField" destination="WVj-XI-wql" id="l1C-Rj-Jly"/>
+                        <outlet property="mapsView" destination="cAx-3Z-IJT" id="84m-J5-9HZ"/>
+                        <outlet property="sliderMenu" destination="gef-MT-nKg" id="HPW-zL-mdw"/>
+                        <outlet property="toButton" destination="EiS-dx-4bE" id="Yzf-xd-Fii"/>
+                        <outlet property="toTextField" destination="4XG-tt-chq" id="Cjh-Sa-dWH"/>
+                        <outlet property="topContrainSliderMenu" destination="7nE-Hh-DOa" id="2Nl-1l-7Ji"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-551" y="127"/>
+        </scene>
+        <!--Auto Complete Controller-->
+        <scene sceneID="jd4-uD-i7m">
+            <objects>
+                <viewController id="5RG-nt-aGl" customClass="AutoCompleteController" customModule="MyMapProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cPm-yh-uKh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="KPe-Zc-WfI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CfH-7X-xmE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e4O-Qm-cwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="353" y="127"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="c7a-M2-SsI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mrV-yq-0Pb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="65t-m6-9P4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="nOX-ny-sbu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PIR-Ku-xDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1266" y="128"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vLX-B1-IrR"/>
+    </inferredMetricsTieBreakers>
 </document>
