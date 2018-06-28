@@ -134,7 +134,7 @@ class MapsViewController: UIViewController, AutoCompleteControllerDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15)
         
         mapsView.camera = camera
-        
+        mapsView.clear()
         if source != nil && destination != nil {
             let markerSource = GMSMarker()
             markerSource.position = CLLocationCoordinate2D(latitude: (source?.coordinate.latitude)!, longitude: (source?.coordinate.longitude)!)
@@ -183,8 +183,10 @@ extension MapsViewController: CLLocationManagerDelegate {
         }
         
     }
+
     // Marker 2 vi tri
     func markerSource(coordinate: CLLocationCoordinate2D) -> GMSMarker {
+        mapsView.clear()
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
         marker.title = source?.name
@@ -193,35 +195,15 @@ extension MapsViewController: CLLocationManagerDelegate {
         return marker
     }
     func markerdestination(coordinate: CLLocationCoordinate2D) -> GMSMarker {
+        mapsView.clear()
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
         marker.title = destination?.name
         marker.snippet = destination?.formattedAddress ?? ""
         marker.map = mapsView
         return marker
-    }
-    // xu ly dieu kien xac dinh vi tri day
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch  status {
-        case .restricted:
-            print("Location access was restricted")
-        case .denied :
-            print("User denied access to location")
-            // hienn thi vi tri mac dinh
-            mapsView.isHidden = false
-        case .notDetermined:
-            print("Location status not determined")
-        case .authorizedAlways: fallthrough
-        case .authorizedWhenInUse:
-            print("Location status is OK.")
-        }
-    }
-    // xu ly bi loi
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        locationManager.stopUpdatingLocation()
-        print("Error:\(error)")
-    }
     
 }
 
 
+}
